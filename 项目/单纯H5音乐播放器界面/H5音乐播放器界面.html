@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        background-color: #e5edf2;
+    }
+    
+    .box {
+        width: 350px;
+        height: 700px;
+        background-color: #f5f9fc;
+        border-radius: 45px;
+        padding-bottom: 70px;
+    }
+    
+    .top {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .back {
+        background-color: #f1f8fd;
+        width: 35px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #f1f7f9;
+        box-shadow: 5px 5px 5px #e9eef4;
+        font-weight: bolder;
+        margin-top: 35px;
+        font-size: 16px;
+    }
+    
+    .more {
+        background-color: #f1f8fd;
+        width: 35px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #f1f7f9;
+        box-shadow: 5px 5px 5px #e9eef4;
+        font-weight: bold;
+        margin-top: 35px;
+    }
+    
+    .list {
+        margin-left: 45px;
+        margin-right: 45px;
+        width: 83px;
+        height: 40px;
+        line-height: 40px;
+        margin-top: 35px;
+        font-weight: bold;
+    }
+    
+    .front_cover {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 30px;
+    }
+    
+    .front_cover img {
+        width: 300px;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    .front_cover::after {
+        content: "";
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: #f1f8fd;
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: 40%;
+    }
+    
+    .songName,
+    .songAuthor {
+        text-align: center;
+    }
+    
+    .songName {
+        margin: 30px 0 16px 0;
+        line-height: 24px;
+        font-size: 24px;
+        color: #222e51;
+    }
+    
+    .songAuthor {
+        margin: 0;
+        line-height: 16px;
+        font-size: 16px;
+        font-weight: normal;
+        color: #8f95a4;
+    }
+    
+    .time {
+        width: 90%;
+        border-radius: 8px;
+        position: relative;
+        height: 16px;
+        margin: 0 auto;
+        margin-top: 56px;
+        box-shadow: 9px 9px 9px rgb(0 0 0 / 5%), -9px -9px 9px rgb(255 255 255 / 50%), inset 4px 4px 4px rgb(0 0 0 / 5%), inset -4px -4px 4px rgb(255 255 255 / 50%);
+        margin-bottom: 56px;
+    }
+    
+    .time .bar {
+        width: 80%;
+        height: 12px;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        background-color: #fed0b3;
+        border-radius: 6px;
+        box-shadow: 9px 9px 9px rgb(0 0 0 / 5%), -9px -9px 9px rgb(255 255 255 / 50%), inset 4px 4px 4px rgb(0 0 0 / 5%), inset -4px -4px 4px rgb(255 255 255 / 50%);
+    }
+    
+    .control {
+        display: flex;
+        box-sizing: border-box;
+        width: 70%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 56px;
+    }
+    
+    .control .prev {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .control .prev {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .control .next {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .control .play {
+        cursor: pointer;
+        position: relative;
+        background-color: #fed0b3;
+        border: none;
+        outline: none;
+        padding: 26px;
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        display: block;
+        transition: all 0.3s;
+        box-shadow: 9px 9px 9px rgb(0 0 0 / 6%), -9px -9px 9px rgb(255 255 255 / 60%), inset 5px 5px 5px rgb(0 0 0 / 7%), inset -5px -5px 5px rgb(255 255 255 / 70%);
+    }
+    /*     
+    .control .play::before {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: rgba(254, 208, 179);
+        top: 50%;
+        left: 50%;
+        box-shadow: inset 3px 3px 3px rgb(255 255 255 / 50%), inset -3px -3px 3px rgb(0 0 0 / 5%);
+        margin: -35px 0 0 -35px;
+    } */
+    
+    .banner {
+        width: 135px;
+        height: 6px;
+        background-color: #c8d4dd;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <button class="back">←</button>
+            <span class="list">My Playlist</span>
+            <button class="more">···</button>
+        </div>
+        <div class="front_cover">
+            <img src="https://www.17sucai.com/preview/1424582/2020-01-05/player/img/123.jpg" alt="">
+        </div>
+        <h3 class="songName">
+            Sober Up
+        </h3>
+        <h4 class="songAuthor">AJR/Rviers Cuomo</h4>
+        <div class="time">
+            <div class="bar">
+            </div>
+        </div>
+        <div class="control">
+            <button class="prev"><svg t="1577170367189" class="icon"
+                    viewBox="0 0 1194 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="1743" width="40"
+                    height="40">
+                    <path
+                        d="M420.943721 392.442767c-106.153251 66.047119-106.153251 173.139025 0 239.100812l581.45358 361.467181c106.153251 66.047119 192.253437 23.039693 192.253437-95.913388V126.888975C1194.650738 7.850562 1108.46522-34.9862 1002.397301 30.975587L420.943721 392.442767z"
+                        p-id="1744" fill="#d5e1ea" filter="url(#inset-shadow)">
+                    </path>
+                    <path
+                        d="M0 0m127.998293 0l0 0q127.998293 0 127.998294 127.998293l0 767.98976q0 127.998293-127.998294 127.998294l0 0q-127.998293 0-127.998293-127.998294l0-767.98976q0-127.998293 127.998293-127.998293Z"
+                        p-id="1745" fill="#d5e1ea" filter="url(#inset-shadow)">
+                    </path>
+                </svg>
+            </button>
+            <button class="play">
+                <svg viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                    <filter id="inset-shadow" x="-50%" y="-50%" width="200%"
+                        height="200%">
+                        <feComponentTransfer in="SourceAlpha">
+                            <feFuncA type="table" tableValues="1 0"></feFuncA>
+                        </feComponentTransfer>
+                        <feGaussianBlur stdDeviation="50"></feGaussianBlur>
+                        <feOffset dx="-5" dy="-5" result="offsetblur">
+                        </feOffset>
+                        <feFlood flood-color="rgba(0, 0, 0, 0.2)"
+                            result="color"></feFlood>
+                        <feComposite in2="offsetblur" operator="in">
+                        </feComposite>
+                        <feComposite in2="SourceAlpha" operator="in">
+                        </feComposite>
+                        <feMerge>
+                            <feMergeNode in="SourceGraphic"></feMergeNode>
+                            <feMergeNode></feMergeNode>
+                        </feMerge>
+                    </filter>
+                    <path
+                        d="M888.32 400.128L236.544 23.808A129.194667 129.194667 0 0 0 42.666667 135.765333v752.64a129.194667 129.194667 0 0 0 193.877333 111.786667L888.32 624.042667a129.28 129.28 0 0 0 0-223.829334z"
+                        p-id="7474" fill="#ffffff" filter="url(#inset-shadow)">
+                    </path>
+                </svg>
+
+            </button>
+            <button class="next"><svg t="1577170367189" class="icon"
+                    viewBox="0 0 1194 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="1743" width="40"
+                    height="40" transform="rotate(180)">
+                    <path
+                        d="M420.943721 392.442767c-106.153251 66.047119-106.153251 173.139025 0 239.100812l581.45358 361.467181c106.153251 66.047119 192.253437 23.039693 192.253437-95.913388V126.888975C1194.650738 7.850562 1108.46522-34.9862 1002.397301 30.975587L420.943721 392.442767z"
+                        p-id="1744" fill="#d5e1ea" filter="url(#inset-shadow)">
+                    </path>
+                    <path
+                        d="M0 0m127.998293 0l0 0q127.998293 0 127.998294 127.998293l0 767.98976q0 127.998293-127.998294 127.998294l0 0q-127.998293 0-127.998293-127.998294l0-767.98976q0-127.998293 127.998293-127.998293Z"
+                        p-id="1745" fill="#d5e1ea" filter="url(#inset-shadow)">
+                    </path>
+                </svg></button>
+
+        </div>
+        <div class="banner">
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
