@@ -22,7 +22,9 @@
     
     .works {
         display: flex;
-        justify-content: space-around;
+        display: -webkit-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     
     .front_cover {
@@ -39,6 +41,10 @@
     .title {
         font-size: 20px;
         text-align: center;
+    }
+    
+    .works>div {
+        margin-left: 15px;
     }
 </style>
 
@@ -63,6 +69,15 @@
                 <img class="front_cover" src="./项目/front_cover/单选框跟复选框.png" style="width: 500px;">
             </a>
         </div>
+        <div class="MusicPlayer">
+            <p class="title">H5音乐播放器界面</p>
+            <a href="./项目/单纯H5音乐播放器界面/H5音乐播放器界面.html" target="_blank">
+                <img class="front_cover" src="./项目/front_cover/单纯H5音乐播放器界面.png" style="width: 500px;">
+            </a>
+        </div>
+
+
+
     </div>
 </body>
 
