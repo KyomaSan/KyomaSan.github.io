@@ -1,0 +1,193 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(135deg, rgba(98, 206, 111, 0.5), rgba(105, 45, 196, 0.5)), linear-gradient(225deg, rgba(218, 66, 47, 0.5), rgba(74, 89, 172, 0.5));
+    perspective: 1200px;
+}
+
+body label {
+    transform-style: preserve-3d;
+}
+
+body label input {
+    display: none;
+}
+
+body label input:checked+.stage {
+    transform: rotateX(60deg);
+}
+
+body label input:checked+.stage:before {
+    background-color: rgba(59, 99, 116, 0.507);
+    z-index: 1;
+}
+
+body label input:checked+.stage .content h3,
+body label input:checked+.stage .content h5 {
+    transform: translateZ(30px);
+    opacity: 0;
+}
+
+body label input:checked+.stage .content h1 {
+    transform: translateY(25px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(1) {
+    transform: rotate(-60deg) translateZ(200px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(2) {
+    transform: rotate(-60deg) translateZ(100px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(3) {
+    transform: rotate(-60deg) translateZ(150px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(4) {
+    transform: rotate(-60deg) translateZ(240px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(5) {
+    transform: rotate(-60deg) translateZ(70px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(6) {
+    transform: rotate(-60deg) translateZ(70px);
+}
+
+body label input:checked+.stage .content .chart .bar:nth-child(7) {
+    transform: rotate(-45deg) translateZ(100px);
+}
+
+body label .stage {
+    transform-style: preserve-3d;
+    width: 360px;
+    height: 500px;
+    background-color: #2d393f;
+    background-image: url("600x600.jpg");
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.3s;
+    transform-origin: center center 100px;
+    position: relative;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body label .stage:before,
+body label .stage:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    transform-style: preserve-3d;
+}
+
+body label .stage:before {
+    background-color: rgba(196, 130, 75, 0.507);
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+body label .stage:after {
+    background-color: #1e2529;
+    z-index: -1;
+    transform: translateZ(-20px);
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.671);
+}
+
+body label .stage .content {
+    position: relative;
+    z-index: 9;
+    text-align: center;
+    width: 80%;
+    transform-style: preserve-3d;
+}
+
+body label .stage .content h3,
+body label .stage .content h5,
+body label .stage .content h1 {
+    transition: all 0.3s;
+    margin: 30px 0;
+}
+
+body label .stage .content .chart {
+    display: flex;
+    justify-content: space-around;
+    transform-style: preserve-3d;
+}
+
+body label .stage .content .chart .bar {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(-45deg) translateZ(0px);
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+
+body label .stage .content .chart .bar span {
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background-image: linear-gradient(to left, #eefdfd, #56a3bb);
+    transform-origin: right center;
+    transform: rotateY(-90deg) translateZ(20px);
+    transform-style: preserve-3d;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 20px;
+}
+
+body label .stage .content .chart .bar span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-image: linear-gradient(to left, #caecec, #56a3bb);
+    transform: rotateX(90deg);
+    transform-origin: bottom center;
+}
+
+body label .stage .content .chart .bar:nth-child(1) span {
+    width: 200px;
+}
+
+body label .stage .content .chart .bar:nth-child(2) span {
+    width: 100px;
+}
+
+body label .stage .content .chart .bar:nth-child(3) span {
+    width: 150px;
+}
+
+body label .stage .content .chart .bar:nth-child(4) span {
+    width: 240px;
+}
+
+body label .stage .content .chart .bar:nth-child(5) span {
+    width: 70px;
+}
+
+body label .stage .content .chart .bar:nth-child(6) span {
+    width: 70px;
+}
+
+body label .stage .content .chart .bar:nth-child(7) span {
+    width: 100px;
+}
