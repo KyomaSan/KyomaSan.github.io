@@ -1,0 +1,176 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./1.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(100px);
+  transform: scale(2);
+  z-index: -1;
+}
+.stage {
+  background-color: white;
+  width: 400px;
+  padding: 0 15px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+  .main {
+    display: flex;
+    height: 100px;
+    position: relative;
+    z-index: 9;
+    background: white;
+
+    .left {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      .disc {
+        width: 120px;
+        height: 120px;
+        // background-color: royalblue;
+        background-image: url("./1.jpg");
+        background-size: cover;
+        // transform: translateY(-0px);
+        position: relative;
+        top: -40px;
+        border-radius: 50%;
+        // border: 10px solid white;
+        // box-sizing: content-box;
+
+        outline: 10px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.3s 0.5s;
+
+        animation: myrotate 6s linear infinite;
+        animation-play-state: paused;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+        &::before {
+          content: "";
+          display: block;
+          width: 10px;
+          height: 10px;
+          background-color: rgb(160, 160, 160);
+          outline: 3px solid white;
+          border-radius: 50%;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      //   background-color: red;
+      i.fa {
+        font-size: 20px;
+        padding: 30px;
+        border-radius: 10px;
+        color: lightgray;
+        &:hover {
+          color: white;
+          background-color: lightgray;
+        }
+      }
+    }
+  }
+  .dialog {
+    background-color: rgba(255, 255, 255, 0.671);
+    width: calc(100% - 40px);
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 0;
+    // padding: 0 20px;
+    margin: 0 20px;
+    // background-clip: content-box;
+    border-radius: 15px 15px 0 0;
+    padding-left: 140px;
+
+    transition: top 0.5s;
+  }
+
+  &.playing {
+    .main {
+      .left {
+        .disc {
+          outline: 5px solid white;
+          //   transform: translateY(-50px);
+          top: -50px;
+          animation-play-state: running;
+        }
+      }
+    }
+    .dialog {
+      top: -80px;
+    }
+  }
+}
+@keyframes myrotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+label {
+  position: relative;
+  width: 200px;
+  height: 3px;
+  // background-color: red;
+  display: block;
+  input {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  .progress {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    .dot {
+      width: 0px;
+      height: 100%;
+      background-color: rgb(218, 86, 86);
+      position: absolute;
+      top: 0px;
+      left: 0;
+      // border-radius: 50%;
+      // transform: scale(1.5);
+      z-index: 2;
+    }
+    .line {
+      width: 0px;
+      height: 100%;
+      background-color: rgb(105, 102, 102);
+      position: absolute;
+      top: 0px;
+      left: 0;
+      z-index: 1;
+    }
+  }
+}

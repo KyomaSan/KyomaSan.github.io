@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.css"
+    />
+    <link rel="stylesheet" href="music.css" />
+    <link
+      href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="mask"></section>
+    <section class="stage">
+      <div class="main">
+        <div class="left">
+          <div class="disc"></div>
+        </div>
+        <div class="right">
+          <i class="fa fa-backward"></i>
+          <i class="fa fa-play"></i>
+          <i class="fa fa-pause" style="display: none"></i>
+          <i class="fa fa-forward"></i>
+        </div>
+      </div>
+      <div class="dialog">
+        <h3>Dawn</h3>
+        <h5>Skylike - Dawn</h5>
+
+        <label>
+            <input type="range" min="0" max="100" value="0" step="0.1" />
+            <div class="progress">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+          </label>
+      </div>
+    </section>
+    <hr />
+
+
+    <audio src="./1.mp3" style="display: none"></audio>
+
+    <script>
+      let audio = document.querySelector("audio");
+      let stage = document.querySelector(".stage");
+
+      let playBtn = document.querySelector(".fa.fa-play");
+      let pauseBtn = document.querySelector(".fa.fa-pause");
+
+      let range = document.querySelector("input");
+      let dot = document.querySelector(".dot");
+      let line = document.querySelector(".line");
+
+      //   音乐播放
+      audio.onplay = function () {
+        //   添加播放中 class
+        stage.classList.add("playing");
+
+        // 切换播放暂停按钮
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "block";
+      };
+
+      //   音乐暂停
+      audio.onpause = function () {
+        stage.classList.remove("playing");
+        playBtn.style.display = "block";
+        pauseBtn.style.display = "none";
+      };
+
+      //   点击按钮播放暂停
+      playBtn.onclick = function () {
+        audio.play();
+      };
+      pauseBtn.onclick = function () {
+        audio.pause();
+      };
+
+      //   音频的时长变化
+      audio.ondurationchange = function (event) {
+        // console.log(event.target.duration);
+        // 设置 range的最大值是 时长
+        range.max = event.target.duration;
+      };
+
+      //   当前播放时间变化
+      audio.ontimeupdate = function () {
+        // 设置进度条
+        dot.style.width =
+          (event.target.currentTime / event.target.duration) * 200 + "px";
+      };
+
+      //   监听range变化
+      range.onchange = function (event) {
+        // console.log(event.target.value);
+        // 设置音频的 当前播放时间
+        audio.currentTime = event.target.value;
+      };
+
+      range.oninput = function (event) {
+        // 设置dot小圆点的位置
+
+        // 当前值 / 最大值 * 可移动范围最大值
+        dot.style.width = (event.target.value / event.target.max) * 200 + "px";
+      };
+
+      range.onmousemove = function (event) {
+        // console.log(event.offsetX);
+        line.style.width = event.offsetX + "px";
+      };
+      range.onmouseleave = function (event) {
+        // console.log(event.offsetX);
+        line.style.width = 0 + "px";
+      };
+    </script>
+  </body>
+</html>
